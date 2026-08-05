@@ -1,6 +1,6 @@
 # Convida
 
-<img src="convida-alt.png" width=250/>
+<img src="https://github.com/user-attachments/assets/10207ae4-2a1a-441d-b29e-b9fdec360e84" width=250/>
 
 An implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) based on this [tutorial](https://rustwasm.github.io/docs/book/game-of-life/introduction.html).
 
@@ -15,7 +15,8 @@ npm install
 npm run start
 ```
 
-[![Screenshot of Convida](./screenshot.png)](https://convida.liambeckman.com)
+[![Screenshot of Convida](https://github.com/user-attachments/assets/d43383ed-24d5-4a25-89b9-6f8e20f320fa)](https://convida.liambeckman.com)
+
 
 ## Development
 
@@ -71,6 +72,6 @@ to build the Rust code in `src/lib.rs` to the `pkg` directory.
 
 ## TODO
 
-- Implement the alternative, delta-based design from the "Implementing Life" chapter, where the Rust code returns a list of cells that changed states to JavaScript. Does this make rendering to `<canvas>` faster? Can you implement this design without allocating a new list of deltas on every tick?
-- As our profiling has shown us, 2D `<canvas>` rendering is not particularly fast. Replace the 2D canvas renderer with a WebGL renderer. How much faster is the WebGL version? How large can you make the universe before WebGL rendering is a bottleneck?
-- We only ever instantiate a single Universe, so rather than providing a constructor, we can export operations that manipulate a single static mut global instance. If this global instance also uses the double buffering technique discussed in earlier chapters, we can make those buffers also be static mut globals. This removes all dynamic allocation from our Game of Life implementation, and we can make it a `#![no_std]` crate that doesn't include an allocator. How much size was removed from the .wasm by completely removing the allocator dependency?
+- [ ] Implement the alternative, delta-based design from the "Implementing Life" chapter, where the Rust code returns a list of cells that changed states to JavaScript. Does this make rendering to `<canvas>` faster? Can you implement this design without allocating a new list of deltas on every tick?
+- [ ] As our profiling has shown us, 2D `<canvas>` rendering is not particularly fast. Replace the 2D canvas renderer with a WebGL renderer. How much faster is the WebGL version? How large can you make the universe before WebGL rendering is a bottleneck?
+- [ ] We only ever instantiate a single Universe, so rather than providing a constructor, we can export operations that manipulate a single static mut global instance. If this global instance also uses the double buffering technique discussed in earlier chapters, we can make those buffers also be static mut globals. This removes all dynamic allocation from our Game of Life implementation, and we can make it a `#![no_std]` crate that doesn't include an allocator. How much size was removed from the .wasm by completely removing the allocator dependency?
